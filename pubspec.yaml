@@ -1,0 +1,30 @@
+name: galactic_scales
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  provider: ^6.1.1
+  auto_route: ^7.8.4
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+  auto_route_generator: ^7.3.2
+
+flutter:
+  assets:
+    - assets/data.json
+
+  uses-material-design: true
+
