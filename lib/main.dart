@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
-import 'package:galactic_scales/screens/home_screen.dart';
+import 'package:galactic_scales/routes/app_router.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen(spaceObjectProvider: SpaceObjectProvider()));
+    AppRouter appRouter = AppRouter();
+    return MaterialApp.router(routerConfig: appRouter.config());
   }
 }
