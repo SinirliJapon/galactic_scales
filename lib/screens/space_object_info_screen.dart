@@ -40,7 +40,7 @@ class SpaceObjectInfoScreen extends StatelessWidget {
                         const SizedBox(height: 10),
                         Text('Distance from Sun: ${value.spaceObjects[spaceObjectId].distanceFromSun}', style: spaceObjectTextStyle()),
                         const SizedBox(height: 10),
-                        Text('Moon: ${value.spaceObjects[spaceObjectId].isMoon}', style: spaceObjectTextStyle()),
+                        Text('ObjectType: ${value.spaceObjects[spaceObjectId].objectType}', style: spaceObjectTextStyle()),
                         const SizedBox(height: 10),
                         Text('Orbits: ${value.spaceObjects[spaceObjectId].orbits}', style: spaceObjectTextStyle()),
                         const SizedBox(height: 10),
