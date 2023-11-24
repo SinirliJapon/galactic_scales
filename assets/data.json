@@ -2,7 +2,7 @@
   "0": {
     "id": 0,
     "name": "Sun",
-    "isMoon": false,
+    "objectType": "Star",
     "mass": 1.989e30,
     "orbits": 0.0,
     "distance_from_sun": 0,
@@ -15,7 +15,7 @@
   "1": {
     "id": 1,
     "name": "Mercury",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 3.285e23,
     "orbits": 88.0,
     "distance_from_sun": 0.39,
@@ -28,7 +28,7 @@
   "2": {
     "id": 2,
     "name": "Venus",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 4.867e24,
     "orbits": 225.0,
     "distance_from_sun": 0.72,
@@ -41,7 +41,7 @@
   "3": {
     "id": 3,
     "name": "Earth",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 5.972e24,
     "orbits": 365.0,
     "distance_from_sun": 1,
@@ -54,7 +54,7 @@
   "4": {
     "id": 4,
     "name": "Mars",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 6.39e23,
     "orbits": 687.0,
     "distance_from_sun": 1.52,
@@ -67,7 +67,7 @@
   "5": {
     "id": 5,
     "name": "Jupiter",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 1.898e27,
     "orbits": 4333.0,
     "distance_from_sun": 5.2,
@@ -80,7 +80,7 @@
   "6": {
     "id": 6,
     "name": "Saturn",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 5.683e26,
     "orbits": 10759.0,
     "distance_from_sun": 9.58,
@@ -93,7 +93,7 @@
   "7": {
     "id": 7,
     "name": "Uranus",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 8.681e25,
     "orbits": 30688.0,
     "distance_from_sun": 19.22,
@@ -106,7 +106,7 @@
   "8": {
     "id": 8,
     "name": "Neptune",
-    "isMoon": false,
+    "objectType": "Planet",
     "mass": 1.024e26,
     "orbits": 60182.0,
     "distance_from_sun": 30.05,
@@ -119,7 +119,7 @@
   "9": {
     "id": 9,
     "name": "Pluto",
-    "isMoon": false,
+    "objectType": "Dwarf Planet",
     "mass": 1.309e22,
     "orbits": 90520.0,
     "distance_from_sun": 39.48,
@@ -132,7 +132,7 @@
   "10": {
     "id": 10,
     "name": "Moon",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 7.342e22,
     "orbits": 27.3,
     "distance_from_sun": 0,
@@ -145,7 +145,7 @@
   "11": {
     "id": 11,
     "name": "Io",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 8.931e22,
     "orbits": 1.77,
     "distance_from_sun": 5.9,
@@ -158,7 +158,7 @@
   "12": {
     "id": 12,
     "name": "Europa",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 4.8e22,
     "orbits": 3.55,
     "distance_from_sun": 9.4,
@@ -171,7 +171,7 @@
   "13": {
     "id": 13,
     "name": "Ganymede",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 1.482e23,
     "orbits": 7.15,
     "distance_from_sun": 10.2,
@@ -184,7 +184,7 @@
   "14": {
     "id": 14,
     "name": "Callisto",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 1.076e23,
     "orbits": 16.69,
     "distance_from_sun": 16.7,
@@ -197,7 +197,7 @@
   "15": {
     "id": 15,
     "name": "Titan",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 1.345e23,
     "orbits": 15.95,
     "distance_from_sun": 9.5,
@@ -210,7 +210,7 @@
   "16": {
     "id": 16,
     "name": "Enceladus",
-    "isMoon": true,
+    "objectType": "Moon",
     "mass": 1.07e23,
     "orbits": 1.37,
     "distance_from_sun": 9.6,
@@ -223,7 +223,7 @@
   "17": {
     "id": 17,
     "name": "Ceres",
-    "isMoon": false,
+    "objectType": "Dwarf Planet",
     "mass": 9.38e20,
     "orbits": 1681.0,
     "distance_from_sun": 2.77,
@@ -236,7 +236,7 @@
   "18": {
     "id": 18,
     "name": "Vesta",
-    "isMoon": false,
+    "objectType": "Protoplanet",
     "mass": 2.6e20,
     "orbits": 1326.0,
     "distance_from_sun": 2.36,
@@ -249,7 +249,7 @@
   "19": {
     "id": 19,
     "name": "Hygiea",
-    "isMoon": false,
+    "objectType": "Asteroid",
     "mass": 8.7e19,
     "orbits": 2032.0,
     "distance_from_sun": 3.14,

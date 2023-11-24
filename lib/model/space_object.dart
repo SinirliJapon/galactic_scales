@@ -1,7 +1,7 @@
 class SpaceObject {
   final int id;
   final String name;
-  final bool isMoon;
+  final String objectType;
   final double mass;
   final double orbits;
   final double distanceFromSun;
@@ -14,7 +14,7 @@ class SpaceObject {
   SpaceObject({
     required this.id,
     required this.name,
-    required this.isMoon,
+    required this.objectType,
     required this.mass,
     required this.orbits,
     required this.distanceFromSun,
@@ -29,7 +29,7 @@ class SpaceObject {
     return SpaceObject(
       id: json['id'] as int,
       name: json['name'] as String,
-      isMoon: json['isMoon'] as bool,
+      objectType: json['objectType'] as String,
       mass: json['mass'] != null ? (json['mass'] as num).toDouble() : 0.0,
       orbits: json['orbits'] != null ? (json['orbits'] as num).toDouble() : 0.0,
       distanceFromSun: json['distance_from_sun'] != null ? (json['distance_from_sun'] as num).toDouble() : 0.0,
