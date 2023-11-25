@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
+import 'package:galactic_scales/widgets/distance_slider.dart';
+import 'package:galactic_scales/widgets/space_object_name.dart';
+import 'package:galactic_scales/widgets/temperature_converter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,41 +24,22 @@ class SpaceObjectInfoScreen extends StatelessWidget {
         } else if (value.spaceObjects.isEmpty) {
           return const Center(child: Text('No space object available'));
         } else {
+          final object = value.spaceObjects[spaceObjectId];
           return SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(value.spaceObjects[spaceObjectId].image, height: screenHeight / 2),
-                Container(
-                  decoration: spaceObjectBoxDecoration(),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 10),
-                        Text(value.spaceObjects[spaceObjectId].name, style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text(value.spaceObjects[spaceObjectId].description, style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text('Distance from Earth: ${value.spaceObjects[spaceObjectId].distanceFromEarth}', style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text('Distance from Sun: ${value.spaceObjects[spaceObjectId].distanceFromSun}', style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text('ObjectType: ${value.spaceObjects[spaceObjectId].objectType}', style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text('Orbits: ${value.spaceObjects[spaceObjectId].orbits}', style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        Text('Surface Temperature: ${value.spaceObjects[spaceObjectId].surfaceTemperature}', style: spaceObjectTextStyle()),
-                        const SizedBox(height: 10),
-                        GestureDetector(
-                          onTap: () {
-                            urlLaunch(value.spaceObjects[spaceObjectId].url);
-                          },
-                          child: Text('Discover more !', style: spaceObjectTextStyle()),
-                        ),
-                      ],
-                    ),
-                  ),
+                SpaceObjectName(object),
+                Image.network(object.image, height: screenHeight / 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TemperatureConverter(surfaceTemperature: object.surfaceTemperature),
+                    TemperatureConverter(surfaceTemperature: object.surfaceTemperature),
+                  ],
                 ),
+                const SizedBox(height: 10),
+                DistanceSlider(distanceFromSun: object.distanceFromSun),
               ],
             ),
           );
@@ -63,19 +47,13 @@ class SpaceObjectInfoScreen extends StatelessWidget {
       }),
     );
   }
+}
 
-  void urlLaunch(String url) {
-    final Uri uri = Uri.parse(url);
-    try {
-      launchUrl(uri);
-    } catch (e) {
-      rethrow;
-    }
+void urlLaunch(String url) {
+  final Uri uri = Uri.parse(url);
+  try {
+    launchUrl(uri);
+  } catch (e) {
+    rethrow;
   }
-
-  BoxDecoration spaceObjectBoxDecoration() {
-    return const BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)), color: Colors.white);
-  }
-
-  TextStyle spaceObjectTextStyle() => const TextStyle(fontWeight: FontWeight.w600, fontSize: 18);
 }
