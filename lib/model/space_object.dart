@@ -1,6 +1,7 @@
 class SpaceObject {
   final int id;
   final String name;
+  final String nickname;
   final String objectType;
   final double mass;
   final double orbits;
@@ -14,6 +15,7 @@ class SpaceObject {
   SpaceObject({
     required this.id,
     required this.name,
+    required this.nickname,
     required this.objectType,
     required this.mass,
     required this.orbits,
@@ -29,6 +31,7 @@ class SpaceObject {
     return SpaceObject(
       id: json['id'] as int,
       name: json['name'] as String,
+      nickname: json['nickname'] as String,
       objectType: json['objectType'] as String,
       mass: json['mass'] != null ? (json['mass'] as num).toDouble() : 0.0,
       orbits: json['orbits'] != null ? (json['orbits'] as num).toDouble() : 0.0,
