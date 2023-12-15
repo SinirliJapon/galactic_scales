@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text('Solar System'))),
+      appBar: AppBar(title: const Text('Solar System'), actions: const [QuizButton()]),
       body: Consumer<SpaceObjectProvider>(
         builder: (context, value, child) {
           if (value.isLoading) {
@@ -56,5 +56,18 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
+  }
+}
+
+class QuizButton extends StatelessWidget {
+  const QuizButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          AutoRouter.of(context).push(const QuizRoute());
+        },
+        icon: const Icon(Icons.quiz));
   }
 }

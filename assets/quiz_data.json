@@ -1,0 +1,122 @@
+[
+    {
+        "question": "Which planet is known as the 'Red Planet'?",
+        "options": ["Earth", "Venus", "Mars", "Jupiter"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png/330px-Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png",
+        "answerIndex": 2
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Jupiter_New_Horizons.jpg/330px-Jupiter_New_Horizons.jpg",
+        "answerIndex": 0
+    },
+    {
+        "question": "How many moons does Earth have?",
+        "options": ["1", "2", "0", "3"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/330px-FullMoon2010.jpg",
+        "answerIndex": 0
+    },
+    {
+        "question": "Which planet is closest to the Sun?",
+        "options": ["Mars", "Venus", "Mercury", "Earth"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/330px-Mercury_in_true_color.jpg",
+        "answerIndex": 2
+    },
+    {
+        "question": "Which planet has the most extensive ring system?",
+        "options": ["Jupiter", "Uranus", "Saturn", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Saturn_Storm.jpg/330px-Saturn_Storm.jpg",
+        "answerIndex": 2
+    },
+    {
+        "question": "Which one used to be a planet?",
+        "options": ["Neptune", "Mercury", "Pluto", "Mars"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/330px-Pluto_in_True_Color_-_High-Res.jpg",
+        "answerIndex": 2
+    },
+    {
+        "question": "What is the largest moon in the solar system?",
+        "options": ["Titan (Saturn's moon)", "Ganymede (Jupiter's moon)", "Callisto (Jupiter's moon)", "Europa (Jupiter's moon)"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Ganymede_-_Perijove_34_Composite.png/330px-Ganymede_-_Perijove_34_Composite.png",
+        "answerIndex": 1
+    },
+    {
+        "question": "Which planet has the most volcanoes?",
+        "options": ["Earth", "Venus", "Mars", "Mercury"],
+        "imageUrl" : "https://science.nasa.gov/_ipx/w_4096&f_jpeg/https://images-assets.nasa.gov/image/PIA00271/PIA00271~large.jpg%3Fw=1920%26h=1920%26fit=clip%26crop=faces%252Cfocalpoint",
+        "answerIndex": 1
+    },
+    {
+        "question": "How many rings does Saturn have?",
+        "options": ["5", "3", "7", "4"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Saturn_and_its_3_moons.jpg/330px-Saturn_and_its_3_moons.jpg",
+        "answerIndex": 2
+    },
+    {
+        "question": "What is the largest asteroid in the asteroid belt?",
+        "options": ["Vesta", "Ceres", "Pallas", "Hygiea"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg/330px-Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg",
+        "answerIndex": 1
+    },
+    {
+        "question": "What is the name of the only planet known to support life?",
+        "options": ["Mars", "Venus", "Earth", "Mercury"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/330px-The_Blue_Marble_%28remastered%29.jpg",
+        "answerIndex": 2
+    },
+    {
+        "question": "Which planet has the highest recorded surface temperature?",
+        "options": ["Venus", "Mercury", "Mars", "Jupiter"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/PIA00103_Venus_-_3-D_Perspective_View_of_Lavinia_Planitia.jpg/330px-PIA00103_Venus_-_3-D_Perspective_View_of_Lavinia_Planitia.jpg",
+        "answerIndex": 0
+    },
+    {
+        "question": "Which planet has the Great Red Spot?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Jupiters_iconic_Great_Red_Spot.jpg/330px-Jupiters_iconic_Great_Red_Spot.jpg",
+        "answerIndex": 0
+    },
+    {
+        "question": "What is the farthest planet from the Sun?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg/330px-Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg",
+        "answerIndex": 3
+    },
+    {
+        "question": "What is the name of the largest volcano in the solar system?",
+        "options": ["Mount Vesuvius (on Earth)", "Mauna Kea (on Earth)", "Olympus Mons (on Mars)", "Mount Etna (on Earth)"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Olympus_Mons_-_ESA_Mars_Express_-_Flickr_-_Andrea_Luck.png/390px-Olympus_Mons_-_ESA_Mars_Express_-_Flickr_-_Andrea_Luck.png",
+        "answerIndex": 2
+    },
+    {
+        "question": "Which moon is considered a potential candidate for hosting extraterrestrial life?",
+        "options": ["Europa (Jupiter's moon)", "Titan (Saturn's moon)", "Ganymede (Jupiter's moon)", "Enceladus (Saturn's moon)"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/PIA17202_-_Approaching_Enceladus.jpg/420px-PIA17202_-_Approaching_Enceladus.jpg",
+        "answerIndex": 3
+    },
+    {
+        "question": "Which planet has the most significant axial tilt?",
+        "options": ["Uranus", "Saturn", "Neptune", "Mars"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Uranus_clouds.jpg/255px-Uranus_clouds.jpg",
+        "answerIndex": 0
+    },
+    {
+        "question": "Which spacecraft was the first to successfully land on Mars?",
+        "options": ["Sputnik 1", "Voyager 1", "Voyager 2", "Viking 1"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Viking_spacecraft.jpg/390px-Viking_spacecraft.jpg",
+        "answerIndex": 3
+    },
+    {
+        "question": "What is the name of the largest known dwarf planet in our solar system?",
+        "options": ["Haumea", "Eris", "Makemake", "Pluto"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Artist%27s_impression_dwarf_planet_Eris.jpg/450px-Artist%27s_impression_dwarf_planet_Eris.jpg",
+        "answerIndex": 1
+    },
+    {
+        "question": "Which planet has the most significant number of moons?",
+        "options": ["Saturn", "Jupiter", "Uranus", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Jupiter_family.png/495px-Jupiter_family.png",
+        "answerIndex": 1
+    }
+]
