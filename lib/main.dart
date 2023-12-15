@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:galactic_scales/provider/quiz_provider.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/routes/app_router.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => SpaceObjectProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => QuizProvider(totalQuestions: 20)),
+        ChangeNotifierProvider(create: (_) => SpaceObjectProvider()),
+      ],
       child: const MyApp(),
     ),
   );
