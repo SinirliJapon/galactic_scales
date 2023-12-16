@@ -50,14 +50,10 @@ class QuizWidget extends StatelessWidget {
 }
 
 class QuizQuestionWidget extends StatelessWidget {
-  const QuizQuestionWidget({
-    super.key,
-    required this.screenHeight,
-    required this.currentQuestion,
-  });
-
   final double screenHeight;
   final QuizQuestion? currentQuestion;
+
+  const QuizQuestionWidget({super.key, required this.screenHeight, required this.currentQuestion});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
+import 'package:galactic_scales/resource/theme_color.dart';
 
 class SpaceObjectName extends StatelessWidget {
   final SpaceObject object;
@@ -24,9 +25,12 @@ class SpaceObjectName extends StatelessWidget {
 }
 
 BoxDecoration spaceObjectBoxDecoration() {
-  return const BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)), color: Colors.white);
+  return const BoxDecoration(
+    borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+    color: ThemeColor.spaceObjectBoxColor,
+  );
 }
 
-TextStyle nickNameTextStyle() => const TextStyle(color: Colors.white, fontSize: 16);
+TextStyle nickNameTextStyle() => const TextStyle(color: ThemeColor.spaceObjectBoxColor, fontSize: 16);
 
-TextStyle spaceObjectTextStyle() => const TextStyle(fontWeight: FontWeight.w600, fontSize: 40, color: Colors.white);
+TextStyle spaceObjectTextStyle() => const TextStyle(fontWeight: FontWeight.w600, fontSize: 40, color: ThemeColor.spaceObjectBoxColor);

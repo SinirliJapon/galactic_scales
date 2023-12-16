@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galactic_scales/resource/theme_color.dart';
 
 enum TemperatureUnit { celsius, fahrenheit, kelvin }
 
@@ -14,17 +15,6 @@ class TemperatureConverter extends StatefulWidget {
 class _TemperatureConverterState extends State<TemperatureConverter> {
   TemperatureUnit _currentUnit = TemperatureUnit.celsius;
 
-  double _convertTemperature(double celsius, TemperatureUnit unit) {
-    switch (unit) {
-      case TemperatureUnit.celsius:
-        return celsius;
-      case TemperatureUnit.fahrenheit:
-        return (celsius * 9 / 5) + 32;
-      case TemperatureUnit.kelvin:
-        return celsius + 273.15;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -35,25 +25,42 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
     return Container(
       width: screenWidth / 2.2,
       height: screenHeight / 12,
-      decoration: BoxDecoration(border: Border.all(color: Colors.white, width: 0.3)),
+      decoration: BoxDecoration(border: Border.all(color: ThemeColor.spaceObjectBoxColor, width: 0.3)),
       child: ListTile(
-        leading: const Icon(Icons.thermostat, color: Colors.white),
-        title: Text('${convertedTemperature.toStringAsFixed(2)} ${_getUnitString()}',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white)),
-        subtitle: Text('TEMPERATURE', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: screenHeight / 60)),
+        iconColor: ThemeColor.spaceObjectBoxColor,
+        titleTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
+        subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
+        leading: const Icon(Icons.thermostat),
+        title: Text('${convertedTemperature.toStringAsFixed(2)} ${_getUnitString()}'),
+        subtitle: const Text('TEMPERATURE'),
         onTap: () {
-          setState(() {
-            if (_currentUnit == TemperatureUnit.celsius) {
-              _currentUnit = TemperatureUnit.fahrenheit;
-            } else if (_currentUnit == TemperatureUnit.fahrenheit) {
-              _currentUnit = TemperatureUnit.kelvin;
-            } else {
-              _currentUnit = TemperatureUnit.celsius;
-            }
-          });
+          switchUnit();
         },
       ),
     );
+  }
+
+  void switchUnit() {
+    return setState(() {
+      if (_currentUnit == TemperatureUnit.celsius) {
+        _currentUnit = TemperatureUnit.fahrenheit;
+      } else if (_currentUnit == TemperatureUnit.fahrenheit) {
+        _currentUnit = TemperatureUnit.kelvin;
+      } else {
+        _currentUnit = TemperatureUnit.celsius;
+      }
+    });
+  }
+
+  double _convertTemperature(double celsius, TemperatureUnit unit) {
+    switch (unit) {
+      case TemperatureUnit.celsius:
+        return celsius;
+      case TemperatureUnit.fahrenheit:
+        return (celsius * 9 / 5) + 32;
+      case TemperatureUnit.kelvin:
+        return celsius + 273.15;
+    }
   }
 
   String _getUnitString() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galactic_scales/resource/theme_color.dart';
 
 enum MassUnit { kilograms, pounds, ounces, grams }
 
@@ -13,6 +14,46 @@ class MassConverter extends StatefulWidget {
 
 class _MassConverterState extends State<MassConverter> {
   MassUnit _currentUnit = MassUnit.kilograms;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double massInKilograms = widget.massInKilograms;
+    double convertedMass = _convertMass(massInKilograms, _currentUnit);
+
+    return Container(
+      width: screenWidth / 2.2,
+      height: screenHeight / 12,
+      decoration: BoxDecoration(border: Border.all(color: ThemeColor.spaceObjectBoxColor, width: 0.3)),
+      child: ListTile(
+        isThreeLine: false,
+        iconColor: ThemeColor.spaceObjectBoxColor,
+        titleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.spaceObjectBoxColor),
+        subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
+        leading: const Icon(Icons.scale),
+        title: Text('${formatScientificNotation(convertedMass)} '),
+        subtitle: Text('MASS IN ${_getUnitString()}'),
+        onTap: () {
+          switchUnit();
+        },
+      ),
+    );
+  }
+
+  void switchUnit() {
+    return setState(() {
+      if (_currentUnit == MassUnit.kilograms) {
+        _currentUnit = MassUnit.pounds;
+      } else if (_currentUnit == MassUnit.pounds) {
+        _currentUnit = MassUnit.ounces;
+      } else if (_currentUnit == MassUnit.ounces) {
+        _currentUnit = MassUnit.grams;
+      } else {
+        _currentUnit = MassUnit.kilograms;
+      }
+    });
+  }
 
   String formatScientificNotation(double value) {
     final scientific = value.toStringAsExponential(2);
@@ -33,49 +74,16 @@ class _MassConverterState extends State<MassConverter> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
-    double massInKilograms = widget.massInKilograms;
-    double convertedMass = _convertMass(massInKilograms, _currentUnit);
-
-    return Container(
-      width: screenWidth / 2.2,
-      height: screenHeight / 12,
-      decoration: BoxDecoration(border: Border.all(color: Colors.white, width: 0.3)),
-      child: ListTile(
-        leading: const Icon(Icons.scale, color: Colors.white),
-        title: Text('${formatScientificNotation(convertedMass)} ${_getUnitString()}',
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white)),
-        subtitle: Text('MASS', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: screenHeight / 60)),
-        onTap: () {
-          setState(() {
-            if (_currentUnit == MassUnit.kilograms) {
-              _currentUnit = MassUnit.pounds;
-            } else if (_currentUnit == MassUnit.pounds) {
-              _currentUnit = MassUnit.ounces;
-            } else if (_currentUnit == MassUnit.ounces) {
-              _currentUnit = MassUnit.grams;
-            } else {
-              _currentUnit = MassUnit.kilograms;
-            }
-          });
-        },
-      ),
-    );
-  }
-
   String _getUnitString() {
     switch (_currentUnit) {
       case MassUnit.kilograms:
-        return 'kg';
+        return 'KG';
       case MassUnit.pounds:
-        return 'lb';
+        return 'LB';
       case MassUnit.ounces:
-        return 'oz';
+        return 'OZ';
       case MassUnit.grams:
-        return 'g';
+        return 'G';
     }
   }
 }
