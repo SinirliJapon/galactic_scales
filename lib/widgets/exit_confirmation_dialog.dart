@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
 
-class QuizCompleteDialog extends StatelessWidget {
-  final double successRate;
+class ExitConfirmationDialog extends StatelessWidget {
   final VoidCallback restartCallback;
 
-  const QuizCompleteDialog({Key? key, required this.successRate, required this.restartCallback}) : super(key: key);
+  const ExitConfirmationDialog({Key? key, required this.restartCallback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +17,26 @@ class QuizCompleteDialog extends StatelessWidget {
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
       titleTextStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20, color: ThemeColor.blackColor),
       contentTextStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: ThemeColor.defaultFontColor),
-      title: const Text('Quiz Complete'),
-      content: Column(
+      title: const Text('Exit Quiz'),
+      content: const Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [const SizedBox(height: 8), Text('Your success rate: ${(successRate * 100).toStringAsFixed(1)}%')],
+        children: [SizedBox(height: 8), Text('Are you sure? This will reset your quiz.')],
       ),
       actions: [
         TextButton(
           onPressed: () {
             restartCallback();
             Navigator.pop(context);
+            Navigator.pop(context);
           },
-          child: const Text('Restart', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
+          child: const Text('Yes', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
         ),
         TextButton(
           onPressed: () {
-            restartCallback();
-            Navigator.pop(context);
             Navigator.pop(context);
           },
-          child: const Text('Exit', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
+          child: const Text('No', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
         ),
       ],
     );
