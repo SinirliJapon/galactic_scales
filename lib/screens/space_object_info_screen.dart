@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/slider_list.dart';
 import 'package:galactic_scales/widgets/distance_slider.dart';
 import 'package:galactic_scales/widgets/link_icon_button.dart';
 import 'package:galactic_scales/widgets/mass_converter.dart';
@@ -33,7 +35,7 @@ class SpaceObjectInfoScreen extends StatelessWidget {
           return const Center(child: Text('No space object available'));
         } else {
           final object = value.spaceObjects[spaceObjectId];
-          return SpaceObjectScreenWidget(object: object);
+          return SpaceObjectContainer(object: object);
         }
       }),
     );
@@ -58,8 +60,8 @@ class AppbarRow extends StatelessWidget {
   }
 }
 
-class SpaceObjectScreenWidget extends StatelessWidget {
-  const SpaceObjectScreenWidget({super.key, required this.object});
+class SpaceObjectContainer extends StatelessWidget {
+  const SpaceObjectContainer({super.key, required this.object});
 
   final SpaceObject object;
 
@@ -79,10 +81,22 @@ class SpaceObjectScreenWidget extends StatelessWidget {
             TemperatureConverter(surfaceTemperature: object.surfaceTemperature),
             MassConverter(massInKilograms: object.mass),
           ]),
-          const SizedBox(height: 10),
-          DistanceSlider(distance: distance, description: description),
-          const SizedBox(height: 10),
-          DistanceSlider(distance: distance, description: description),
+          CarouselSlider(
+            options: CarouselOptions(
+              height: screenHeight / 5,
+              aspectRatio: 1.0,
+              viewportFraction: 1.0,
+              reverse: true,
+              scrollDirection: Axis.horizontal,
+            ),
+            items: [
+              DistanceSlider(distance: distance, description: description, itemList: landmarks, icon: Icons.apartment, name: 'LANDMARKS'),
+              DistanceSlider(distance: distance, description: description, itemList: animals, icon: Icons.pets, name: 'ANIMALS'),
+              DistanceSlider(distance: distance, description: description, itemList: naturalWonders, icon: Icons.landscape, name: 'NATURAL WONDERS'),
+              DistanceSlider(distance: distance, description: description, itemList: sports, icon: Icons.pool, name: 'SPORTS'),
+              DistanceSlider(distance: distance, description: description, itemList: vehicles, icon: Icons.rocket, name: 'VEHICLES & DEVICES'),
+            ],
+          ),
         ],
       ),
     );
