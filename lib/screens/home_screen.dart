@@ -5,7 +5,7 @@ import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/routes/app_router.gr.dart';
 import 'package:provider/provider.dart';
 
-@RoutePage()
+@immutable
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -14,6 +14,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  IconData icon = Icons.grid_view_rounded;
+  int grid = 2;
+
   @override
   void initState() {
     super.initState();
@@ -22,11 +25,30 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _toggleGrid() {
+    setState(() {
+      if (grid == 2) {
+        grid = 3;
+        icon = Icons.grid_on_rounded;
+      } else if (grid == 3) {
+        grid = 1;
+        icon = Icons.grid_off_rounded;
+      } else {
+        grid = 2;
+        icon = Icons.grid_view_rounded;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Solar System'), actions: const [QuizButton()]),
+      appBar: AppBar(
+        title: const Text('Solar System'),
+        actions: [const QuizButton(), IconButton(onPressed: _toggleGrid, icon: Icon(icon))],
+      ),
       body: Consumer<SpaceObjectProvider>(
         builder: (context, value, child) {
           if (value.isLoading) {
@@ -36,21 +58,19 @@ class _HomeScreenState extends State<HomeScreen> {
           } else {
             return GridView.builder(
               itemCount: value.spaceObjects.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: grid),
               itemBuilder: (context, index) {
                 final SpaceObject spaceObject = value.spaceObjects[index];
                 return GestureDetector(
                   onTap: () => AutoRouter.of(context).push(SpaceObjectInfoRoute(spaceObjectId: spaceObject.id)),
                   child: Card(
-                      elevation: 2,
-                      color: Colors.black,
-                      margin: const EdgeInsets.all(4.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.network(spaceObject.image, width: screenWidth / 3),
-                      )),
+                    elevation: 2,
+                    color: Colors.black,
+                    margin: const EdgeInsets.all(4.0),
+                    child: Padding(padding: const EdgeInsets.all(8.0), child: Image.network(spaceObject.image, width: screenWidth / grid)),
+                  ),
                 );
               },
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             );
           }
         },
@@ -60,14 +80,15 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class QuizButton extends StatelessWidget {
-  const QuizButton({super.key});
+  const QuizButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          AutoRouter.of(context).push(const QuizRoute());
-        },
-        icon: const Icon(Icons.quiz));
+      onPressed: () {
+        AutoRouter.of(context).push(const QuizRoute());
+      },
+      icon: const Icon(Icons.quiz),
+    );
   }
 }
