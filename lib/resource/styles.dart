@@ -30,4 +30,13 @@ abstract class Styles {
       side: const BorderSide(color: Colors.black, width: 1),
     )),
   );
+  static BoxDecoration homeScreenBoxDecoration = const BoxDecoration(
+    gradient: LinearGradient(
+      colors: [ThemeColor.homeScreenFirstColor, ThemeColor.homeScreenSecondColor, ThemeColor.homeScreenThirdColor],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      stops: [0.0, 0.5, 1.0],
+      tileMode: TileMode.clamp,
+    ),
+  );
 }
