@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galactic_scales/resource/theme_color.dart';
 
 class PopupIconButton extends StatelessWidget {
   final String description;
@@ -25,10 +26,11 @@ void _showPopup(BuildContext context, String details) {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text(details, style: const TextStyle(fontSize: 18)),
+            child: Text(details, style: const TextStyle(fontSize: 18, color: ThemeColor.blackColor)),
           ),
         ],
         backgroundColor: Colors.white,
+        contentTextStyle: const TextStyle(color: ThemeColor.blackColor),
         actionsPadding: const EdgeInsets.all(10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 2,

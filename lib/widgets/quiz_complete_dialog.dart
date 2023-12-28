@@ -30,7 +30,7 @@ class QuizCompleteDialog extends StatelessWidget {
             restartCallback();
             Navigator.pop(context);
           },
-          child: const Text('Restart', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
+          child: const Text('Restart', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenFirstColor)),
         ),
         TextButton(
           onPressed: () {
@@ -38,7 +38,7 @@ class QuizCompleteDialog extends StatelessWidget {
             Navigator.pop(context);
             Navigator.pop(context);
           },
-          child: const Text('Exit', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenBackgroundColor)),
+          child: const Text('Exit', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenFirstColor)),
         ),
       ],
     );
