@@ -20,28 +20,40 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  IconData icon = Icons.grid_off_rounded;
-  int grid = 1;
+  IconData _icon = Icons.grid_off_rounded;
+  int _grid = 1;
+
+  late String searchQuery = '';
+  late List<SpaceObject> searchResults = [];
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () {
-      Provider.of<SpaceObjectProvider>(context, listen: false).fetchData();
-    });
+    Future.delayed(Duration.zero, () => Provider.of<SpaceObjectProvider>(context, listen: false).fetchData());
   }
 
   void _toggleGrid() {
     setState(() {
-      if (grid == 2) {
-        grid = 3;
-        icon = Icons.grid_on_rounded;
-      } else if (grid == 3) {
-        grid = 1;
-        icon = Icons.grid_off_rounded;
+      if (_grid == 2) {
+        _grid = 3;
+        _icon = Icons.grid_on_rounded;
+      } else if (_grid == 3) {
+        _grid = 1;
+        _icon = Icons.grid_off_rounded;
       } else {
-        grid = 2;
-        icon = Icons.grid_view_rounded;
+        _grid = 2;
+        _icon = Icons.grid_view_rounded;
+      }
+    });
+  }
+
+  void _performSearch(String value, List<SpaceObject> spaceObjects) {
+    setState(() {
+      searchQuery = value.toLowerCase();
+      searchResults.clear();
+
+      if (searchQuery.isNotEmpty) {
+        searchResults.addAll(spaceObjects.where((spaceObject) => spaceObject.name.toLowerCase().startsWith(searchQuery)));
       }
     });
   }
@@ -59,34 +71,79 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text('Galactic Scales', style: TextStyle(fontWeight: FontWeight.bold)),
           actions: [
             const QuizButton(),
-            IconButton(onPressed: _toggleGrid, icon: Icon(icon)),
+            IconButton(onPressed: _toggleGrid, icon: Icon(_icon)),
             const PopupIconButton(description: Descriptions.homeScreenDescription),
           ],
         ),
-        body: Consumer<SpaceObjectProvider>(
-          builder: (context, value, child) {
-            if (value.isLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (value.spaceObjects.isEmpty) {
-              return const Center(child: Text('No Space Object Available'));
-            } else {
-              return grid == 1
-                  ? HomeScreenListView(spaceObjects: value.spaceObjects, screenHeight: screenHeight)
-                  : HomeScreenGridView(grid: grid, spaceObjects: value.spaceObjects);
-            }
-          },
+        body: Expanded(
+          child: Consumer<SpaceObjectProvider>(
+            builder: (context, object, child) {
+              if (object.isLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (object.spaceObjects.isEmpty) {
+                return const Center(child: Text('No Space Object Available'));
+              } else {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        style: const TextStyle(color: ThemeColor.foregroundColor),
+                        cursorColor: ThemeColor.foregroundColor,
+                        onChanged: (value) => _performSearch(value, object.spaceObjects),
+                        decoration: Styles.spaceObjectSearchDecoration,
+                      ),
+                    ),
+                    Expanded(
+                      child: BuildGridOrList(
+                        searchResults: searchResults,
+                        searchQuery: searchQuery,
+                        grid: _grid,
+                        spaceObjects: object.spaceObjects,
+                        screenHeight: screenHeight,
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
+          ),
         ),
       ),
     );
   }
 }
 
-class HomeScreenListView extends StatelessWidget {
-  const HomeScreenListView({
-    super.key,
+class BuildGridOrList extends StatelessWidget {
+  const BuildGridOrList({
+    Key? key,
+    required this.searchResults,
+    required this.searchQuery,
+    required this.grid,
     required this.spaceObjects,
     required this.screenHeight,
-  });
+  }) : super(key: key);
+
+  final List<SpaceObject> searchResults;
+  final String searchQuery;
+  final int grid;
+  final List<SpaceObject> spaceObjects;
+  final double screenHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    if (searchResults.isEmpty && searchQuery.isNotEmpty) {
+      return const Center(child: Text('No Matching Results Found'));
+    } else {
+      return grid == 1
+          ? HomeScreenListView(spaceObjects: searchResults.isEmpty ? spaceObjects : searchResults, screenHeight: screenHeight)
+          : HomeScreenGridView(grid: grid, spaceObjects: searchResults.isEmpty ? spaceObjects : searchResults);
+    }
+  }
+}
+
+class HomeScreenListView extends StatelessWidget {
+  const HomeScreenListView({super.key, required this.spaceObjects, required this.screenHeight});
 
   final List<SpaceObject> spaceObjects;
   final double screenHeight;
@@ -121,7 +178,10 @@ class HomeScreenListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GFListTile(
-      onTap: () => AutoRouter.of(context).push(SpaceObjectInfoRoute(spaceObjectId: spaceObject.id)),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        AutoRouter.of(context).push(SpaceObjectInfoRoute(spaceObjectId: spaceObject.id));
+      },
       avatar: HomeScreenAvatar(imageUrl: spaceObject.image, screenHeight: screenHeight),
       title: Text(spaceObject.name, style: const TextStyle(color: ThemeColor.foregroundColor, fontSize: 20)),
       subTitle: Text(spaceObjectNickname, style: const TextStyle(color: ThemeColor.foregroundColor)),
@@ -174,7 +234,10 @@ class HomeScreenGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         final SpaceObject spaceObject = spaceObjects[index];
         return GestureDetector(
-          onTap: () => AutoRouter.of(context).push(SpaceObjectInfoRoute(spaceObjectId: spaceObject.id)),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            AutoRouter.of(context).push(SpaceObjectInfoRoute(spaceObjectId: spaceObject.id));
+          },
           child: Card(
             elevation: 2,
             color: Colors.black,
