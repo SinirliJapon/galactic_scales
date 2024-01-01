@@ -39,4 +39,18 @@ abstract class Styles {
       tileMode: TileMode.clamp,
     ),
   );
+  static InputDecoration spaceObjectSearchDecoration = InputDecoration(
+    hintText: 'Search',
+    hintStyle: const TextStyle(color: ThemeColor.foregroundColor, fontWeight: FontWeight.bold),
+    prefixIcon: const Icon(Icons.search, color: ThemeColor.foregroundColor),
+    contentPadding: const EdgeInsets.all(12),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(color: ThemeColor.foregroundColor, width: 1.0),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(color: ThemeColor.foregroundColor, width: 2.0),
+    ),
+  );
 }
