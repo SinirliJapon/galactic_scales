@@ -48,7 +48,7 @@ class _QuizScreenState extends State<QuizScreen> {
             title: const Text('Solar System Quiz'),
             backgroundColor: Colors.transparent,
             foregroundColor: ThemeColor.quizScreenForegroundColor,
-            actions: const [PopupIconButton(description: Descriptions.quizScreenDescription)],
+            actions: const [PopupIconButton(title: Descriptions.quizScreenTitle, description: Descriptions.quizScreenDescription)],
           ),
           body: Consumer<QuizProvider>(
             builder: (context, value, child) {
