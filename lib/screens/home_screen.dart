@@ -20,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  IconData _icon = Icons.grid_off_rounded;
+  IconData _icon = Icons.view_list_rounded;
   int _grid = 1;
 
   late String searchQuery = '';
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _icon = Icons.grid_on_rounded;
       } else if (_grid == 3) {
         _grid = 1;
-        _icon = Icons.grid_off_rounded;
+        _icon = Icons.view_list_rounded;
       } else {
         _grid = 2;
         _icon = Icons.grid_view_rounded;
