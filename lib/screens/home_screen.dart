@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             const QuizButton(),
             IconButton(onPressed: _toggleGrid, icon: Icon(_icon)),
-            const PopupIconButton(description: Descriptions.homeScreenDescription),
+            const PopupIconButton(title: Descriptions.homeScreenTitle, description: Descriptions.homeScreenDescription),
           ],
         ),
         body: Expanded(

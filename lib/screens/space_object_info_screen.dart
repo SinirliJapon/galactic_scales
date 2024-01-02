@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/descriptions.dart';
 import 'package:galactic_scales/utils/slider_list.dart';
 import 'package:galactic_scales/widgets/distance_slider.dart';
 import 'package:galactic_scales/widgets/link_icon_button.dart';
@@ -25,7 +26,10 @@ class SpaceObjectInfoScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ThemeColor.blackColor,
         foregroundColor: ThemeColor.foregroundColor,
-        actions: [AppbarRow(spaceObjectId: spaceObjectId)],
+        actions: [
+          AppbarRow(spaceObjectId: spaceObjectId),
+          const PopupIconButton(title: Descriptions.infoScreenTitle, description: Descriptions.infoScreenDescription)
+        ],
       ),
       backgroundColor: ThemeColor.blackColor,
       body: Consumer<SpaceObjectProvider>(builder: (context, value, child) {
@@ -53,7 +57,6 @@ class AppbarRow extends StatelessWidget {
       return Row(
         children: [
           LinkIconButton(url: value.spaceObjects[spaceObjectId].url),
-          PopupIconButton(description: value.spaceObjects[spaceObjectId].description),
         ],
       );
     });
