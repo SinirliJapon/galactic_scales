@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/functions.dart';
 
 enum MassUnit { kilograms, pounds, ounces, grams }
 
@@ -32,11 +33,9 @@ class _MassConverterState extends State<MassConverter> {
         titleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.spaceObjectBoxColor),
         subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
         leading: const Icon(Icons.scale),
-        title: Text('${formatScientificNotation(convertedMass)} '),
+        title: Text('${Functions.scientificMass(convertedMass)} '),
         subtitle: Text('MASS IN ${_getUnitString()}'),
-        onTap: () {
-          switchUnit();
-        },
+        onTap: () => switchUnit(),
       ),
     );
   }
@@ -53,12 +52,6 @@ class _MassConverterState extends State<MassConverter> {
         _currentUnit = MassUnit.kilograms;
       }
     });
-  }
-
-  String formatScientificNotation(double value) {
-    final scientific = value.toStringAsExponential(2);
-    final parts = scientific.split('e');
-    return '${parts[0]} × 10^${int.parse(parts[1])}';
   }
 
   double _convertMass(double kilograms, MassUnit unit) {

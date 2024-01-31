@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/functions.dart';
 
+/*  This component represents a slider for visualizing and comparing the distance of a space object in different units or scales. */
 class DistanceSlider extends StatefulWidget {
   final double distance;
   final String description;
@@ -38,18 +40,6 @@ class _DistanceSliderState extends State<DistanceSlider> {
     distanceRatio = distanceInMetric / selectedList[selectedListIndex]["property"];
   }
 
-  formatScientificNotation(double value) {
-    final scientific = value.toStringAsExponential(2);
-    final parts = scientific.split('e');
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('${parts[0]} × 10^${parts[1].replaceAll('+', '')}', style: const TextStyle(fontSize: 16)),
-        Text('TIMES', style: TextStyle(fontSize: 14, color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5))),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -65,7 +55,7 @@ class _DistanceSliderState extends State<DistanceSlider> {
               titleTextStyle: const TextStyle(color: ThemeColor.spaceObjectBoxColor, fontSize: 18),
               subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: 16),
               leading: Icon(widget.icon),
-              trailing: formatScientificNotation(distanceRatio),
+              trailing: Functions.scientificDistance(distanceRatio),
               title: Text(selectedListName),
               subtitle: Text(widget.description.toUpperCase()),
             ),
@@ -97,6 +87,23 @@ class _DistanceSliderState extends State<DistanceSlider> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class DistanceTrailing extends StatelessWidget {
+  final List<String> parts;
+
+  const DistanceTrailing({super.key, required this.parts});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('${parts[0]} × 10^${parts[1].replaceAll('+', '')}', style: const TextStyle(fontSize: 16)),
+        Text('TIMES', style: TextStyle(fontSize: 14, color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5))),
+      ],
     );
   }
 }

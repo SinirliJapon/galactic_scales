@@ -33,9 +33,7 @@ class ExitConfirmationDialog extends StatelessWidget {
           child: const Text('Yes', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenFirstColor)),
         ),
         TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
           child: const Text('No', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenFirstColor)),
         ),
       ],

@@ -70,7 +70,7 @@
     "distance_from_sun": 1.52,
     "distance_from_earth": 0.5,
     "surface_temperature": -63,
-    "description": "Mars is the fourth planet from the Sun and often called the 'Red Planet' due to its reddish appearance. It has the largest volcano and canyon in the Solar System.",
+    "description": "Mars is the fourth planet from the Sun and often called the 'Red Planet' due to its reddish appearance. It has the largest volcano(Mount Olympus) and canyon in the Solar System.",
     "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png/330px-Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png",
     "url": "https://en.wikipedia.org/wiki/Mars"
   },
@@ -115,7 +115,7 @@
     "distance_from_sun": 19.22,
     "distance_from_earth": 18.41,
     "surface_temperature": -224,
-    "description": "Uranus is the seventh planet from the Sun, known for its unique rotation, as it orbits the Sun on its side. It's often called an 'ice giant.'",
+    "description": "Uranus is the seventh planet from the Sun, known for its unique rotation, as it orbits the Sun on its side. It's often called an 'ice giant. It's coldest planet in Solar System.'",
     "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29_-_JPEG_converted.jpg/330px-Uranus_as_seen_by_NASA%27s_Voyager_2_%28remastered%29_-_JPEG_converted.jpg",
     "url": "https://en.wikipedia.org/wiki/Uranus"
   },

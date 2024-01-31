@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
 
+/* This component displays a popup diaglog with a title and description, providing additional details */
 class PopupIconButton extends StatelessWidget {
   final String title;
   final String description;
@@ -27,7 +28,7 @@ void _showPopup(BuildContext context, String title, String details) {
           titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ThemeColor.blackColor),
           contentTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: ThemeColor.defaultFontColor),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          backgroundColor: Colors.white,
+          backgroundColor: ThemeColor.foregroundColor,
           alignment: Alignment.center,
           elevation: 2,
         ),
