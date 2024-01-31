@@ -8,9 +8,7 @@ class QuizButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {
-        AutoRouter.of(context).push(const QuizRoute());
-      },
+      onPressed: () => AutoRouter.of(context).push(const QuizRoute()),
       icon: const Icon(Icons.quiz),
     );
   }

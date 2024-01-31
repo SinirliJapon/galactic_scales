@@ -4,5 +4,10 @@ class QuizQuestion {
   final String imageUrl;
   final int answerIndex;
 
-  QuizQuestion({required this.question, required this.options, required this.answerIndex, required this.imageUrl});
+  QuizQuestion({
+    required this.question,
+    required this.options,
+    required this.answerIndex,
+    required this.imageUrl,
+  });
 }

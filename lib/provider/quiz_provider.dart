@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:galactic_scales/model/quiz_question.dart';
 import 'package:galactic_scales/resource/styles.dart';
-import 'package:galactic_scales/widgets/exit_confirmation_dialog.dart';
-import 'package:galactic_scales/widgets/quiz_complete_dialog.dart';
+import 'package:galactic_scales/widgets/quiz_screen_widgets/quiz_complete_dialog.dart';
 
 class QuizProvider extends ChangeNotifier {
   late List<QuizQuestion> _questions = [];
@@ -98,14 +97,6 @@ class QuizProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
-  }
-
-  Future<bool> onWillPop(BuildContext context, VoidCallback reset) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => ExitConfirmationDialog(restartCallback: reset),
-    );
-    return confirmed ?? false;
   }
 
   void resetQuiz() {

@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
-import 'package:galactic_scales/utils/descriptions.dart';
 import 'package:galactic_scales/utils/slider_list.dart';
-import 'package:galactic_scales/widgets/distance_slider.dart';
-import 'package:galactic_scales/widgets/link_icon_button.dart';
-import 'package:galactic_scales/widgets/mass_converter.dart';
-import 'package:galactic_scales/widgets/popup_icon_button.dart';
-import 'package:galactic_scales/widgets/space_object_image.dart';
-import 'package:galactic_scales/widgets/space_object_name.dart';
-import 'package:galactic_scales/widgets/temperature_converter.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/appbar_row.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/distance_slider.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/mass_converter.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_image.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_name.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/temperature_converter.dart';
 import 'package:provider/provider.dart';
 
 @RoutePage()
@@ -26,10 +24,7 @@ class SpaceObjectInfoScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ThemeColor.blackColor,
         foregroundColor: ThemeColor.foregroundColor,
-        actions: [
-          AppbarRow(spaceObjectId: spaceObjectId),
-          const PopupIconButton(title: Descriptions.infoScreenTitle, description: Descriptions.infoScreenDescription)
-        ],
+        actions: [AppbarRow(spaceObjectId: spaceObjectId)],
       ),
       backgroundColor: ThemeColor.blackColor,
       body: Consumer<SpaceObjectProvider>(builder: (context, value, child) {
@@ -43,23 +38,6 @@ class SpaceObjectInfoScreen extends StatelessWidget {
         }
       }),
     );
-  }
-}
-
-class AppbarRow extends StatelessWidget {
-  const AppbarRow({super.key, required this.spaceObjectId});
-
-  final int spaceObjectId;
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<SpaceObjectProvider>(builder: (context, value, child) {
-      return Row(
-        children: [
-          LinkIconButton(url: value.spaceObjects[spaceObjectId].url),
-        ],
-      );
-    });
   }
 }
 

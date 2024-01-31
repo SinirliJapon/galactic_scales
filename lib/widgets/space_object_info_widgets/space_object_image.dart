@@ -16,16 +16,16 @@ class SpaceObjectImage extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              elevation: 2,
-              titlePadding: const EdgeInsets.only(top: 32, left: 16, right: 16),
-              contentPadding: const EdgeInsets.all(16),
-              actionsPadding: const EdgeInsets.all(8),
-              backgroundColor: ThemeColor.alertDialogBackground,
-              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              titleTextStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20, color: ThemeColor.blackColor),
-              contentTextStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: ThemeColor.defaultFontColor),
               title: Text('${object.name} (${object.nickname})'),
               content: Text(object.description),
+              titlePadding: const EdgeInsets.all(20),
+              contentPadding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ThemeColor.blackColor),
+              contentTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: ThemeColor.defaultFontColor),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+              backgroundColor: ThemeColor.foregroundColor,
+              alignment: Alignment.center,
+              elevation: 2,
             );
           },
         );
