@@ -33,7 +33,7 @@ class _MassConverterState extends State<MassConverter> {
         titleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.spaceObjectBoxColor),
         subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
         leading: const Icon(Icons.scale),
-        title: Text('${Functions.scientificMass(convertedMass)} '),
+        title: Text('${Functions.calculateScientificMass(convertedMass)} '),
         subtitle: Text('MASS IN ${_getUnitString()}'),
         onTap: () => switchUnit(),
       ),

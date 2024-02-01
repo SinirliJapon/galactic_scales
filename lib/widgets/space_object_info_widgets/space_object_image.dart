@@ -3,13 +3,13 @@ import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
 
 class SpaceObjectImage extends StatelessWidget {
-  const SpaceObjectImage({super.key, required this.object, required this.screenHeight});
+  const SpaceObjectImage({super.key, required this.object});
 
   final SpaceObject object;
-  final double screenHeight;
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
         showDialog(

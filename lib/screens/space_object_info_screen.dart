@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/provider/space_object_provider.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/functions.dart';
 import 'package:galactic_scales/utils/slider_list.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/appbar_row.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/distance_slider.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/mass_converter.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_image.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_name.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_orbits.dart';
+import 'package:galactic_scales/widgets/space_object_info_widgets/space_object_size.dart';
 import 'package:galactic_scales/widgets/space_object_info_widgets/temperature_converter.dart';
 import 'package:provider/provider.dart';
 
@@ -49,18 +52,21 @@ class SpaceObjectContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final double distance = (object.id == 0 || object.id == 10) ? object.distanceFromEarth : object.distanceFromSun;
-    final description = (object.id == 0 || object.id == 10) ? 'Distance from Earth' : 'Distance from Sun';
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SpaceObjectName(object),
-          SpaceObjectImage(object: object, screenHeight: screenHeight),
+          SpaceObjectImage(object: object),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             TemperatureConverter(surfaceTemperature: object.surfaceTemperature),
             MassConverter(massInKilograms: object.mass),
+          ]),
+          const SizedBox(height: 10),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            SpaceObjectSize(object),
+            SpaceObjectOrbits(object),
           ]),
           CarouselSlider(
             options: CarouselOptions(
@@ -71,11 +77,36 @@ class SpaceObjectContainer extends StatelessWidget {
               scrollDirection: Axis.horizontal,
             ),
             items: [
-              DistanceSlider(distance: distance, description: description, itemList: landmarks, icon: Icons.apartment, name: 'LANDMARKS'),
-              DistanceSlider(distance: distance, description: description, itemList: animals, icon: Icons.pets, name: 'ANIMALS'),
-              DistanceSlider(distance: distance, description: description, itemList: naturalWonders, icon: Icons.landscape, name: 'NATURAL WONDERS'),
-              DistanceSlider(distance: distance, description: description, itemList: sports, icon: Icons.pool, name: 'SPORTS'),
-              DistanceSlider(distance: distance, description: description, itemList: vehicles, icon: Icons.rocket, name: 'VEHICLES & DEVICES'),
+              DistanceSlider(
+                  distance: Functions.getSliderDistance(object),
+                  description: Functions.getSliderDescription(object),
+                  itemList: landmarks,
+                  icon: Icons.apartment,
+                  name: 'LANDMARKS'),
+              DistanceSlider(
+                  distance: Functions.getSliderDistance(object),
+                  description: Functions.getSliderDescription(object),
+                  itemList: animals,
+                  icon: Icons.pets,
+                  name: 'ANIMALS'),
+              DistanceSlider(
+                  distance: Functions.getSliderDistance(object),
+                  description: Functions.getSliderDescription(object),
+                  itemList: naturalWonders,
+                  icon: Icons.landscape,
+                  name: 'NATURAL WONDERS'),
+              DistanceSlider(
+                  distance: Functions.getSliderDistance(object),
+                  description: Functions.getSliderDescription(object),
+                  itemList: sports,
+                  icon: Icons.pool,
+                  name: 'SPORTS'),
+              DistanceSlider(
+                  distance: Functions.getSliderDistance(object),
+                  description: Functions.getSliderDescription(object),
+                  itemList: vehicles,
+                  icon: Icons.rocket,
+                  name: 'VEHICLES & DEVICES'),
             ],
           ),
         ],
