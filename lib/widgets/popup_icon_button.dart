@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/functions.dart';
 
 /* This component displays a popup diaglog with a title and description, providing additional details */
 class PopupIconButton extends StatelessWidget {
@@ -10,29 +10,6 @@ class PopupIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(onPressed: () => _showPopup(context, title, description), icon: const Icon(Icons.info));
+    return IconButton(onPressed: () => Functions.showPopup(context, title, description), icon: const Icon(Icons.info));
   }
-}
-
-void _showPopup(BuildContext context, String title, String details) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return GestureDetector(
-        onTap: () => Navigator.of(context).pop(),
-        child: AlertDialog(
-          title: Text(title),
-          content: Text(details),
-          titlePadding: const EdgeInsets.all(20),
-          contentPadding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-          titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ThemeColor.blackColor),
-          contentTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: ThemeColor.defaultFontColor),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          backgroundColor: ThemeColor.foregroundColor,
-          alignment: Alignment.center,
-          elevation: 2,
-        ),
-      );
-    },
-  );
 }

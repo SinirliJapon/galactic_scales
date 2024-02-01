@@ -55,7 +55,7 @@ class _DistanceSliderState extends State<DistanceSlider> {
               titleTextStyle: const TextStyle(color: ThemeColor.spaceObjectBoxColor, fontSize: 18),
               subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: 16),
               leading: Icon(widget.icon),
-              trailing: Functions.scientificDistance(distanceRatio),
+              trailing: Functions.calculateScinetificDistance(distanceRatio),
               title: Text(selectedListName),
               subtitle: Text(widget.description.toUpperCase()),
             ),
