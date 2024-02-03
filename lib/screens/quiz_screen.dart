@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/quiz_question.dart';
@@ -36,9 +34,10 @@ class _QuizScreenState extends State<QuizScreen> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
     final quizProvider = Provider.of<QuizProvider>(context);
-    // TODO: Fix here !!
-    return WillPopScope(
-      onWillPop: () => Functions.onWillPop(context, quizProvider.resetQuiz),
+    const quizActions = [PopupIconButton(title: Descriptions.quizScreenTitle, description: Descriptions.quizScreenDescription)];
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (bool didPop) async => Functions.onWillPop(context, quizProvider.resetQuiz),
       child: Container(
         decoration: Styles.quizScreenBoxDecoration,
         child: Scaffold(
@@ -47,7 +46,7 @@ class _QuizScreenState extends State<QuizScreen> {
             title: const Text('Solar System Quiz'),
             backgroundColor: Colors.transparent,
             foregroundColor: ThemeColor.quizScreenForegroundColor,
-            actions: const [PopupIconButton(title: Descriptions.quizScreenTitle, description: Descriptions.quizScreenDescription)],
+            actions: quizActions,
           ),
           body: Consumer<QuizProvider>(
             builder: (context, value, child) {

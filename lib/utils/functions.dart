@@ -11,11 +11,11 @@ import 'package:url_launcher/url_launcher.dart';
 abstract class Functions {
   /* This function is for handling the system back button press in quiz screen */
   static Future<bool> onWillPop(BuildContext context, VoidCallback reset) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) => ExitConfirmationDialog(restartCallback: reset),
-    );
-    return confirmed ?? false;
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => ExitConfirmationDialog(restartCallback: reset),
+        ) ??
+        false;
   }
 
   static void showPopup(BuildContext context, String title, String details) {
