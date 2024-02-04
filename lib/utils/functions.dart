@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:developer' as dev;
 
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
@@ -35,8 +36,14 @@ abstract class Functions {
     try {
       launchUrl(uri);
     } catch (e) {
-      rethrow;
+      dev.log("Error occurred: $e");
+      SnackBar(content: Text("Error occured: $e"));
     }
+  }
+
+  static String getNickname(SpaceObject object) {
+    final String nickname = object.nickname == '' ? object.objectType : object.nickname;
+    return nickname;
   }
 
   static double getSliderDistance(SpaceObject object) {
@@ -76,9 +83,25 @@ abstract class Functions {
   }
 
   static String getComparisonTitle(SpaceObject object) {
-    const String subtitleForSun = 'COMPARISON WIHT EARTH';
+    const String subtitleForSun = 'COMPARISON WITH EARTH';
     const String subtitleForOtherObjects = 'COMPARISON WITH SUN';
     final String comparisonTitle = object.id == 0 ? subtitleForSun : subtitleForOtherObjects;
     return comparisonTitle;
+  }
+
+  static int getOrbit(SpaceObject object) {
+    final int spaceObjectOrbit = object.id == 0 ? 365 : object.orbits.toInt();
+    return spaceObjectOrbit;
+  }
+
+  static String getOrbitTitle(SpaceObject object) {
+    final String celestial = object.moonOf == "" ? 'Sun' : object.moonOf;
+    final String orbitTitle = object.id == 0 ? "Earth's Orbit Around the Sun" : "${object.name}'s Orbit around the $celestial";
+    return orbitTitle;
+  }
+
+  static String getOrbitDetails(SpaceObject object) {
+    final String orbitDetails = object.id == 0 ? "365 Earth Days" : "${object.orbits.toInt()} Earth Days";
+    return orbitDetails;
   }
 }

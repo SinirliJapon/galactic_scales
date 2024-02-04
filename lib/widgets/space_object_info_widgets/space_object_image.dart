@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
-import 'package:galactic_scales/resource/theme_color.dart';
+import 'package:galactic_scales/utils/functions.dart';
 
 class SpaceObjectImage extends StatelessWidget {
   const SpaceObjectImage({super.key, required this.object});
@@ -11,25 +11,7 @@ class SpaceObjectImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
-      onTap: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('${object.name} (${object.nickname})'),
-              content: Text(object.description),
-              titlePadding: const EdgeInsets.all(20),
-              contentPadding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-              titleTextStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ThemeColor.blackColor),
-              contentTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: ThemeColor.defaultFontColor),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-              backgroundColor: ThemeColor.foregroundColor,
-              alignment: Alignment.center,
-              elevation: 2,
-            );
-          },
-        );
-      },
+      onTap: () => Functions.showPopup(context, '${object.name} (${Functions.getNickname(object)})', object.description),
       child: Image.network(object.image, height: screenHeight / 2),
     );
   }

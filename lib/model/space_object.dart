@@ -3,6 +3,7 @@ class SpaceObject {
   final String name;
   final String nickname;
   final String objectType;
+  final String moonOf;
   final double size;
   final double mass;
   final double orbits;
@@ -18,6 +19,7 @@ class SpaceObject {
     required this.name,
     required this.nickname,
     required this.objectType,
+    required this.moonOf,
     required this.size,
     required this.mass,
     required this.orbits,
@@ -35,6 +37,7 @@ class SpaceObject {
       name: json['name'] as String,
       nickname: json['nickname'] as String,
       objectType: json['objectType'] as String,
+      moonOf: json['moonOf'] as String,
       size: json['size'] != null ? (json['size'] as num).toDouble() : 0.0,
       mass: json['mass'] != null ? (json['mass'] as num).toDouble() : 0.0,
       orbits: json['orbits'] != null ? (json['orbits'] as num).toDouble() : 0.0,
