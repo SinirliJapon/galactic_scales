@@ -30,7 +30,7 @@ class HomeScreenListTile extends StatelessWidget {
       },
       avatar: HomeScreenAvatar(imageUrl: spaceObject.image, screenHeight: screenHeight),
       title: Text(spaceObject.name, style: const TextStyle(color: ThemeColor.foregroundColor, fontSize: 20)),
-      subTitle: Text(spaceObjectNickname, style: const TextStyle(color: ThemeColor.foregroundColor)),
+      subTitle: Text(spaceObjectNickname.toUpperCase(), style: const TextStyle(color: ThemeColor.foregroundColor)),
       icon: const Icon(Icons.chevron_right, color: ThemeColor.foregroundColor),
       listItemTextColor: ThemeColor.foregroundColor,
       color: ThemeColor.blackColor,

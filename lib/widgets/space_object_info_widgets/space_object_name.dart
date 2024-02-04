@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/resource/styles.dart';
+import 'package:galactic_scales/utils/functions.dart';
 
 class SpaceObjectName extends StatelessWidget {
   final SpaceObject object;
@@ -17,7 +18,7 @@ class SpaceObjectName extends StatelessWidget {
           Text(object.name.toUpperCase(), style: Styles.spaceObjectTextStyle),
           object.nickname.isEmpty
               ? Text(object.objectType.toUpperCase(), style: Styles.nickNameTextStyle)
-              : Text(object.nickname.toUpperCase(), style: Styles.nickNameTextStyle),
+              : Text(Functions.getNickname(object).toUpperCase(), style: Styles.nickNameTextStyle),
         ],
       ),
     );

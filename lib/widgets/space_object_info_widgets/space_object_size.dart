@@ -19,10 +19,11 @@ class SpaceObjectSize extends StatelessWidget {
       child: ListTile(
         onTap: () => Functions.showPopup(context, Functions.getComparisonTitle(object), Functions.getComparisonDetails(object)),
         iconColor: ThemeColor.spaceObjectBoxColor,
-        titleTextStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white),
+        titleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
         subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
         leading: const Icon(Icons.sunny),
-        title: Text(Functions.getComparisonTitle(object)),
+        title: Text('${object.size.toInt()} km'),
+        subtitle: const Text('RADIUS SIZE'),
       ),
     );
   }
