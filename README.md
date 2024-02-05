@@ -6,7 +6,8 @@ Galactic Scales is a Flutter application designed to educate and engage users wi
 
 - Flutter: [flutter.dev](https://flutter.dev/)
 - Provider: [pub.dev/packages/provider](https://pub.dev/packages/provider)
-- AutoRooute: [pub.dev/packages/auto_route](https://pub.dev/packages/auto_route)
+- AutoRoute: [pub.dev/packages/auto_route](https://pub.dev/packages/auto_route)
+- Cached Network Image: [pub.dev/packages/cached_network_image](https://pub.dev/packages/cached_network_image)
 - Carousel Slider: [pub.dev/packages/carousel_slider](https://pub.dev/packages/carousel_slider)
 - Flutter Native Splash - [pub.dev/packages/flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 
