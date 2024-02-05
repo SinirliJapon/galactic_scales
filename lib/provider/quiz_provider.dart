@@ -9,13 +9,13 @@ class QuizProvider extends ChangeNotifier {
   late List<QuizQuestion> _questions = [];
   late final List<QuizQuestion> _correctQuestions = [];
   late final List<QuizQuestion> _wrongQuestions = [];
-  late final int totalQuestions;
+  final int totalQuestions = 5;
   late int questionIndex = 0;
   late bool isQuizDataLoading = false;
   late bool isLoading = false;
   late List<ButtonStyle>? buttonStyles;
 
-  QuizProvider({required this.totalQuestions}) {
+  QuizProvider() {
     buttonStyles = List.generate(4, (_) => Styles.quizDefaultButtonStyle);
   }
 
@@ -33,6 +33,11 @@ class QuizProvider extends ChangeNotifier {
     try {
       String jsonData = await rootBundle.loadString('assets/quiz_data.json');
       List<dynamic> jsonList = json.decode(jsonData);
+
+      jsonList.shuffle();
+
+      jsonList = jsonList.take(5).toList();
+
       _questions = jsonList.map((item) {
         return QuizQuestion(
           question: item['question'],
@@ -51,28 +56,33 @@ class QuizProvider extends ChangeNotifier {
   }
 
   Future<void> handleAnswer(int optionIndex, int index, BuildContext context) async {
+    if (isLoading) return;
+
     isLoading = true;
+    notifyListeners();
+
     try {
       if (optionIndex == index) {
         buttonStyles![index] = Styles.quizCorrectButtonStyle;
-        markAsCorrect(_questions[questionIndex]);
+        if (questionIndex < _questions.length) {
+          markAsCorrect(_questions[questionIndex]);
+        }
       } else {
         buttonStyles![optionIndex] = Styles.quizWrongButtonStyle;
         buttonStyles![index] = Styles.quizCorrectButtonStyle;
-        markAsWrong(_questions[questionIndex]);
+        if (questionIndex < _questions.length) {
+          markAsWrong(_questions[questionIndex]);
+        }
       }
 
+      await Future.delayed(const Duration(seconds: 1));
+
       if (questionIndex < _questions.length - 1) {
-        await Future.delayed(const Duration(seconds: 1));
         questionIndex++;
-        buttonStyles![optionIndex] = Styles.quizDefaultButtonStyle;
-        buttonStyles![index] = Styles.quizDefaultButtonStyle;
+        buttonStyles = List.generate(4, (_) => Styles.quizDefaultButtonStyle);
         notifyListeners();
       } else {
-        await Future.delayed(const Duration(seconds: 1)).then((result) {
-          showCompleteDialog(context);
-        });
-        notifyListeners();
+        await Future.delayed(const Duration(milliseconds: 100)).then((value) => showCompleteDialog(context));
       }
     } catch (e) {
       rethrow;
