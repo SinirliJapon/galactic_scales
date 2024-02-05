@@ -18,7 +18,9 @@ dependencies:
   carousel_slider: ^4.2.1
   getwidget: ^4.0.0
   intl: ^0.19.0
-  
+  flutter_native_splash: ^2.3.10
+  flutter_launcher_icons: ^0.13.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -27,10 +29,24 @@ dev_dependencies:
   build_runner: ^2.4.6
   auto_route_generator: ^7.3.2
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/images/planet.png
+
+flutter_native_splash:
+  android: true
+  fullscreen: true
+  color: "#808080"
+  image: assets/images/planet.png
+
+  android_12:
+    color: "#808080"
+    image: assets/images/planet.png
+
 flutter:
   assets:
-    - assets/data.json
-    - assets/quiz_data.json
+    - assets/data/data.json
+    - assets/data/quiz_data.json
 
   uses-material-design: true
 

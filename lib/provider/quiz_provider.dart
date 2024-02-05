@@ -31,7 +31,7 @@ class QuizProvider extends ChangeNotifier {
     isQuizDataLoading = true;
     notifyListeners();
     try {
-      String jsonData = await rootBundle.loadString('assets/quiz_data.json');
+      String jsonData = await rootBundle.loadString('assets/data/quiz_data.json');
       List<dynamic> jsonList = json.decode(jsonData);
 
       jsonList.shuffle();

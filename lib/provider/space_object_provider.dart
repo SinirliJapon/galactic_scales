@@ -12,7 +12,7 @@ class SpaceObjectProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     try {
-      final String jsonData = await rootBundle.loadString('assets/data.json');
+      final String jsonData = await rootBundle.loadString('assets/data/data.json');
       final Map<String, dynamic> parsedJson = jsonDecode(jsonData);
       _spaceObjects = parsedJson.values.map((e) => SpaceObject.fromJson(e)).toList();
     } catch (e) {
