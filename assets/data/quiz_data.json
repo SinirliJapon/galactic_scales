@@ -96,6 +96,12 @@
         "answerIndex": 2
     },
     {
+        "question": "What is the only planet that rotates clockwise?",
+        "options": ["Earth", "Mars", "Venus", "Jupiter"],
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Venus_globe.jpg/330px-Venus_globe.jpg",
+        "answerIndex": 2
+    },
+    {
         "question": "Which moon is considered a potential candidate for hosting extraterrestrial life?",
         "options": ["Europa (Jupiter's moon)", "Titan (Saturn's moon)", "Ganymede (Jupiter's moon)", "Enceladus (Saturn's moon)"],
         "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/PIA17202_-_Approaching_Enceladus.jpg/420px-PIA17202_-_Approaching_Enceladus.jpg",
