@@ -42,7 +42,8 @@ abstract class Functions {
   }
 
   static String getNickname(SpaceObject object) {
-    final String nickname = object.nickname == '' ? object.objectType : object.nickname;
+    final String objectType = object.objectType == 'Moon' ? 'Moon of ${object.moonOf}' : object.objectType;
+    final String nickname = object.nickname == '' ? objectType : object.nickname;
     return nickname;
   }
 

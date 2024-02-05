@@ -318,5 +318,21 @@
     "description": "Hygiea is the fourth-largest object in the asteroid belt and was recently confirmed as a dwarf planet. Its surface composition is not yet fully understood.",
     "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/SPHERE_image_of_Hygiea.jpg/398px-SPHERE_image_of_Hygiea.jpg",
     "url": "https://en.wikipedia.org/wiki/10_Hygiea"
+  },
+  "20": {
+    "id": 20,
+    "name": "Eris",
+    "nickname" : "",
+    "objectType": "Dwarf Planet",
+    "moonOf": "",
+    "size": 2326,
+    "mass": 1.66e22,
+    "orbits": 56189.0,
+    "distance_from_sun": 67.67,
+    "distance_from_earth": 66.52,
+    "surface_temperature": -217,
+    "description": "Eris is one of the largest known dwarf planets in our solar system. It was discovered in 2005 and is located in the scattered disc.",
+    "image" : "https://img.freepik.com/premium-photo/fictional-eris-sun-rise-dark-background-with-stars-front-view-eris-planet-from-space-full-3d-view-eris-4k-resolution_824086-710.jpg",
+    "url": "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)"
   }
 }

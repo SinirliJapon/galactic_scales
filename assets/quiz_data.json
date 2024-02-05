@@ -36,6 +36,12 @@
         "answerIndex": 2
     },
     {
+        "question": "What is the smallest planet in our solar system?",
+        "options": ["Pluto", "Mars", "Mercury", "Neptune"],
+        "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/330px-Mercury_in_true_color.jpg",
+        "answerIndex": 2
+    },    
+    {
         "question": "What is the largest moon in the solar system?",
         "options": ["Titan (Saturn's moon)", "Ganymede (Jupiter's moon)", "Callisto (Jupiter's moon)", "Europa (Jupiter's moon)"],
         "imageUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Ganymede_-_Perijove_34_Composite.png/330px-Ganymede_-_Perijove_34_Composite.png",
