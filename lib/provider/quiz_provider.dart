@@ -99,7 +99,7 @@ class QuizProvider extends ChangeNotifier {
       await showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (BuildContext context) => QuizCompleteDialog(successRate: successRate, restartCallback: resetQuiz),
+        builder: (BuildContext context) => QuizCompleteDialog(successRate: successRate, restartCallback: resetQuiz, startNewQuizCallback: () => startNewQuiz(context)),
       );
     } catch (e) {
       rethrow;
@@ -107,6 +107,17 @@ class QuizProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
+  }
+
+  void startNewQuiz(BuildContext context) async{
+    questionIndex = 0;
+    isLoading = false;
+    buttonStyles = List.generate(4, (_) => Styles.quizDefaultButtonStyle);
+    _correctQuestions.clear();
+    _wrongQuestions.clear();
+    _questions = [];
+    await loadQuizData(context);
+    notifyListeners();
   }
 
   void resetQuiz() {

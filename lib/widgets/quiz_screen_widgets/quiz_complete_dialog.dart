@@ -4,8 +4,9 @@ import 'package:galactic_scales/resource/theme_color.dart';
 class QuizCompleteDialog extends StatelessWidget {
   final double successRate;
   final VoidCallback restartCallback;
+  final VoidCallback startNewQuizCallback;
 
-  const QuizCompleteDialog({Key? key, required this.successRate, required this.restartCallback}) : super(key: key);
+  const QuizCompleteDialog({Key? key, required this.successRate, required this.restartCallback, required this.startNewQuizCallback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,13 @@ class QuizCompleteDialog extends StatelessWidget {
             Navigator.pop(context);
           },
           child: const Text('Restart', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenThirdColor)),
+        ),
+        TextButton(
+          onPressed: () {
+            startNewQuizCallback();
+            Navigator.pop(context);
+          },
+          child: const Text('New Quiz', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ThemeColor.quizScreenThirdColor)),
         ),
         TextButton(
           onPressed: () {
