@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/space_object.dart';
 import 'package:galactic_scales/routes/app_router.gr.dart';
@@ -31,7 +32,7 @@ class HomeScreenGridView extends StatelessWidget {
             color: Colors.black,
             margin: const EdgeInsets.all(4.0),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(padding: const EdgeInsets.all(4.0), child: Image.network(spaceObject.image)),
+            child: Padding(padding: const EdgeInsets.all(4.0), child: CachedNetworkImage(imageUrl: spaceObject.image)),
           ),
         );
       },

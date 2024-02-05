@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/model/quiz_question.dart';
 
@@ -17,7 +18,7 @@ class QuizImage extends StatelessWidget {
           color: Colors.black,
           child: Column(
             children: [
-              Image.network(questions[questionIndex].imageUrl, width: screenWidth / 1.8, height: screenWidth / 1.8),
+              CachedNetworkImage(imageUrl: questions[questionIndex].imageUrl, width: screenWidth / 1.8, height: screenWidth / 1.8),
               const Divider(height: 0, thickness: 0, color: Colors.transparent),
             ],
           ),

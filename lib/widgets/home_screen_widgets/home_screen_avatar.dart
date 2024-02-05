@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:galactic_scales/resource/theme_color.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
@@ -18,7 +19,7 @@ class HomeScreenAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GFAvatar(
       shape: GFAvatarShape.standard,
-      backgroundImage: NetworkImage(imageUrl),
+      backgroundImage: CachedNetworkImageProvider(imageUrl),
       size: screenHeight / 12,
       backgroundColor: ThemeColor.blackColor,
     );
