@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="galactic_scales"
+        android:label="Galactic Scales"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

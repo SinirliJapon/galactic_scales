@@ -19,7 +19,7 @@ class SpaceObjectOrbits extends StatelessWidget {
       child: ListTile(
         onTap: () => Functions.showPopup(context, Functions.getOrbitTitle(object), Functions.getOrbitDetails(object)),
         iconColor: ThemeColor.spaceObjectBoxColor,
-        titleTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: ThemeColor.foregroundColor),
+        titleTextStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.foregroundColor),
         subtitleTextStyle: TextStyle(color: ThemeColor.spaceObjectBoxColor.withOpacity(0.5), fontSize: screenHeight / 60),
         leading: const Icon(Icons.wifi_protected_setup),
         title: Text('${Functions.getOrbit(object)} DAYS'),

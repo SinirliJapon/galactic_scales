@@ -35,20 +35,31 @@ abstract class Styles {
 
   static BoxDecoration quizScreenBoxDecoration = const BoxDecoration(
     gradient: LinearGradient(
-      colors: [ThemeColor.quizScreenFirstColor, ThemeColor.quizScreenSecondColor, ThemeColor.quizScreenThirdColor],
+      colors: [
+        ThemeColor.quizScreenFirstColor,
+        ThemeColor.quizScreenSecondColor,
+        ThemeColor.quizScreenThirdColor,
+        ThemeColor.quizScreenFourthColor,
+      ],
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
-      stops: [0.0, 0.5, 1.0],
+      stops: [0.0, 0.3, 0.7, 1.0],
       tileMode: TileMode.clamp,
     ),
   );
 
   static BoxDecoration homeScreenBoxDecoration = const BoxDecoration(
     gradient: LinearGradient(
-      colors: [ThemeColor.homeScreenFirstColor, ThemeColor.homeScreenSecondColor, ThemeColor.homeScreenThirdColor],
+      colors: [
+        ThemeColor.homeScreenFirstColor,
+        ThemeColor.homeScreenSecondColor,
+        ThemeColor.homeScreenThirdColor,
+        ThemeColor.homeScreenFourthColor,
+        ThemeColor.homeScreenFifthColor,
+      ],
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
-      stops: [0.0, 0.5, 1.0],
+      stops: [0.0, 0.2, 0.5, 0.8, 1.0],
       tileMode: TileMode.clamp,
     ),
   );
