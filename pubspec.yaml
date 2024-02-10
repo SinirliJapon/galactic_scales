@@ -32,7 +32,7 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: "launcher_icon"
-  image_path: "assets/images/planet.png
+  image_path: assets/images/planet.png
 
 flutter_native_splash:
   android: true
